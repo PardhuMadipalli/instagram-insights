@@ -4,3 +4,6 @@
 
 # Secrets
 .access_token.txt
+
+# CSV data
+insta_insights.csv
