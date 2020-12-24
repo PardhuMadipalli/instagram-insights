@@ -1,21 +1,14 @@
-import pandas
 import constant
+from commons import readcsv
+from commons import remove_element_list
+
 import matplotlib.pyplot as plt
 
 
-def readcsv():
-    return pandas.read_csv(constant.INSIGHTS_CSV)
-
-
-def remove_element_list(input_list, to_be_removed):
-    return [elem for elem in input_list if elem != to_be_removed]
-
-
-def get_best_tags():
+def get_best_tags(show_graphs=False):
     df = readcsv()
-    _get_best_tag_based_on(constant.IMPRESSIONS_COL, df, show_graphs=False)
-    _get_best_tag_based_on(constant.ENGAGEMENT_COL, df, show_graphs=False)
-    _get_best_tag_based_on(constant.REACH_COL, df)
+    for metric in constant.METRICS_COLUMNS:
+        _get_best_tag_based_on(metric, df, show_graphs=show_graphs)
 
 
 def _get_best_tag_based_on(column_name, initial_df, show_graphs=False):
@@ -27,9 +20,16 @@ def _get_best_tag_based_on(column_name, initial_df, show_graphs=False):
     for tag in tags_columns:
         tag_avg_impressions.update({tag: (df[tag]*df[column_name]).sum()/(df[tag].sum())})
     sorted_avg = dict(sorted(tag_avg_impressions.items(), key=lambda item: item[1]))
-    print('Best  tag based on', column_name, ':', list(sorted_avg.keys())[-1])
-    print('Worst tag based on', column_name, ':', list(sorted_avg.keys())[0])
+
+    print(f'Best  tags based on {column_name}           : {list(sorted_avg.keys())[-4:][::-1]}')
+    print(f'Their corresponding {column_name} values are: {list(sorted_avg.values())[-4:][::-1]}')
+    print()
+
+    print(f'Worst tags based on {column_name}           : {list(sorted_avg.keys())[:4]}')
+    print(f'Their corresponding {column_name} values are: {list(sorted_avg.values())[:4]}')
+    print()
+
     if show_graphs:
         plt.bar(*zip(*sorted_avg.items()))
         plt.show()
-    return list(sorted_avg.keys())[-1],list(sorted_avg.keys())[0]
+    return list(sorted_avg.keys())[-1], list(sorted_avg.keys())[0]

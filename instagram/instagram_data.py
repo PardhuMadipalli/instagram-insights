@@ -2,6 +2,7 @@ from .restmethods import get
 import constant
 import re
 import csv
+from datetime import datetime
 
 
 class Instapost:
@@ -12,19 +13,23 @@ class Instapost:
         self.reach = reach
         self.timestamp = timestamp
         self._caption = caption
-        self.tags = self._gethashtags()
+        self.tags = self._get_hash_tags()
+        self.hour = self._get_hour()
 
-    def printPost(self):
+    def print_post(self):
         print(self.id, end=' ')
         print(*self.tags, sep=' ')
 
-    def _gethashtags(self):
+    def _get_hash_tags(self):
         return [tag[1:] for tag in re.findall("[#]\w+", self._caption)]
+
+    def _get_hour(self):
+        # Sample date format is 2020-12-20T11:29:31+0000
+        return datetime.strptime(self.timestamp, "%Y-%m-%dT%H:%M:%S%z").hour
 
 
 def get_insights():
     token = _get_token()
-    print('token is', token)
     posts_response = get([constant.PAGE_ID, 'media'], token)
     posts = []
     unique_tags = set()
@@ -41,7 +46,6 @@ def get_insights():
                                  metadata_resp['timestamp'],
                                  metadata_resp['caption'])
         posts.append(current_post)
-        #current_post.printPost()
         unique_tags.update(current_post.tags)
         unique_tags_list = list(unique_tags)
         headers_row = constant.DEFAULT_COLUMNS + unique_tags_list
@@ -50,7 +54,7 @@ def get_insights():
             csvwriter = csv.writer(csvfile)
             csvwriter.writerow(headers_row)
             for post in posts:
-                metadata = [post.id, post.impressions, post.engagement, post.reach, post.timestamp]
+                metadata = [post.id, post.impressions, post.engagement, post.reach, post.timestamp, post.hour]
                 tags_list = list(map(lambda tag: 1 if tag in post.tags else 0, unique_tags_list))
                 total_row = metadata + tags_list
                 csvwriter.writerow(total_row)
