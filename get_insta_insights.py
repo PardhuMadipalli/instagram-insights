@@ -14,8 +14,8 @@ long_options = ["machine-learning", "help"]
 
 def main():
     instagram_data.get_insights()
-    timings.get_timing_insights()
-    hashtags.get_best_tags()
+    timings.get_timing_insights(max_indices=3)
+    hashtags.get_best_tags(max_indices=5)
 
 
 if __name__ == "__main__":
