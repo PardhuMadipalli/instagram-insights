@@ -1,6 +1,8 @@
 import constant
 from commons import readcsv
 from commons import remove_element_list
+import insights.htmlutils as htmlutils
+
 
 import matplotlib.pyplot as plt
 
@@ -21,13 +23,24 @@ def _get_best_tag_based_on(column_name, initial_df, max_indices, show_graphs=Fal
         tag_avg_impressions.update({tag: (df[tag]*df[column_name]).sum()/(df[tag].sum())})
     sorted_avg = dict(sorted(tag_avg_impressions.items(), key=lambda item: item[1]))
 
+    table = htmlutils.Table('Tags based on ' + column_name)
+    table.add_header_row(['Best tags', 'Metric values', 'Worst tags', 'Metric values'])
+
     print(f'Best  tags based on {column_name}           : {list(sorted_avg.keys())[-max_indices:][::-1]}')
     print(f'Their corresponding {column_name} values are: {list(sorted_avg.values())[-max_indices:][::-1]}')
     print()
 
+    table.add_column_data(list(sorted_avg.keys())[-max_indices:][::-1])
+    table.add_column_data(list(sorted_avg.values())[-max_indices:][::-1])
+
     print(f'Worst tags based on {column_name}           : {list(sorted_avg.keys())[:max_indices]}')
     print(f'Their corresponding {column_name} values are: {list(sorted_avg.values())[:max_indices]}')
     print()
+
+    table.add_column_data(list(sorted_avg.keys())[:max_indices])
+    table.add_column_data(list(sorted_avg.values())[:max_indices])
+
+    table.write_html()
 
     if show_graphs:
         plt.bar(*zip(*sorted_avg.items()))

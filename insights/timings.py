@@ -1,6 +1,7 @@
 from commons import readcsv
 import numpy as np
 import constant
+import insights.htmlutils as htmlutils
 
 
 def get_timing_insights(max_indices=4):
@@ -16,6 +17,8 @@ def _get_best_timing_based_on(column_name, df, max_indices=3):
     # corresponds to number of times that a post has been made in that hour
     metrics_counter = np.full([24], 0, dtype=int)
 
+    table = htmlutils.Table('Timings based on ' + column_name)
+
     for index, row in df.iterrows():
         metrics_total[row[constant.HOUR_COL]] += row[column_name]
         metrics_counter[row[constant.HOUR_COL]] += 1
@@ -29,3 +32,8 @@ def _get_best_timing_based_on(column_name, df, max_indices=3):
     print(f'Top {max_indices} hours to post for maximum {column_name} are {idx}')
     print(f'Average {column_name}s at these hours are {metrics_avg[idx]} respectively.')
     print()
+
+    table.add_header_row(['Best hours', 'Average metric values'])
+    table.add_column_data(idx)
+    table.add_column_data(metrics_avg[idx])
+    table.write_html()
