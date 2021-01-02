@@ -2,6 +2,8 @@ ACCESS_TOKEN_FILENAME = '.access_token.txt'
 GRAPH_ENDPOINT = 'https://graph.facebook.com/v9.0/'
 PAGE_ID = '17841439948763854'
 INSIGHTS_CSV = 'insta_insights.csv'
+HTML_FILE = 'index.html'
+HTML_TEMPLATE = 'index.html.template'
 
 ID_COL = 'id'
 IMPRESSIONS_COL = 'impressions'

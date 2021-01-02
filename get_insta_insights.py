@@ -7,6 +7,7 @@ import sys
 from instagram import instagram_data
 from insights import hashtags
 from insights import timings
+from insights import htmlutils
 
 options = "mh"
 long_options = ["machine-learning", "help"]
@@ -14,8 +15,13 @@ long_options = ["machine-learning", "help"]
 
 def main():
     instagram_data.get_insights()
+
+    htmlutils.create_html()
+
     timings.get_timing_insights(max_indices=3)
     hashtags.get_best_tags(max_indices=5)
+
+    htmlutils.end_html()
 
 
 if __name__ == "__main__":
