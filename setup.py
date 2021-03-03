@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="instagram-insights",
-    version="0.0.dev5",
+    version="0.2.4",
     author="Pardhu Madipalli",
     author_email="pardhu.madipalli@gmail.com",
     description="Get insights about best times to post, and the best tags based on likes, views and impressions.",

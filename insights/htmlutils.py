@@ -1,8 +1,8 @@
 import constant
 import os
-import pkgutil
 import pkg_resources
 import shutil
+
 
 def get_html_file():
     return os.getcwd() + "/index.html"
