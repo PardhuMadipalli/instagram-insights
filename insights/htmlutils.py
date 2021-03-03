@@ -1,20 +1,31 @@
 import constant
+import os
+import shutil
+
+
+def get_html_file():
+    return os.getcwd() + "/index.html"
+
+
+def get_css_file():
+    return os.getcwd() + "/style.css"
 
 
 def create_html():
-    with open(constant.HTML_TEMPLATE, 'r') as template:
-        with open(constant.HTML_FILE, 'w') as htmlFile:
-            for line in template:
-                htmlFile.write(line)
+    shutil.copy(constant.HTML_TEMPLATE, get_html_file())
+    try:
+        shutil.copy(constant.CSS_FILE, get_css_file())
+    except:
+        pass
 
 
 def end_html():
-    append_html('</body>' + "\n" + '</html>')
-    print('HTML file is generated at ', constant.HTML_FILE)
+    append_html('</div></body>' + "\n" + '</html>')
+    print('HTML file is generated at ', get_html_file())
 
 
 def append_html(html_data):
-    with open(constant.HTML_FILE, 'a+') as htmlFile:
+    with open(get_html_file(), 'a+') as htmlFile:
         htmlFile.write(html_data)
 
 

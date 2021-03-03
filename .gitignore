@@ -10,3 +10,7 @@ insta_insights.csv
 
 # HTML
 index.html
+
+build/
+dist/
+instagram_insights.egg-info/

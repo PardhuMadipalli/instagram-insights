@@ -3,18 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>Instagram Insights</title>
-    <style>
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-        }
-        th, td {
-          padding: 5px;
-          text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div>
 <h1>Instagram Insights</h1>
 
 

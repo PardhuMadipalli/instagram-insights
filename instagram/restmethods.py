@@ -6,6 +6,9 @@ import json
 def get(path_params, token, query_params=None):
     if query_params is None:
         query_params = {}
+    resp = requests.get(url=_geturl(path_params), params={**_get_token_query(token), **query_params})
+    if resp.status_code not in [200, 201]:
+        raise Exception('Incorrect response code.', resp.text)
     return json.loads(requests.get(url=_geturl(path_params), params={**_get_token_query(token), **query_params}).text)
 
 

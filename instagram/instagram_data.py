@@ -28,9 +28,10 @@ class Instapost:
         return datetime.strptime(self.timestamp, "%Y-%m-%dT%H:%M:%S%z").hour
 
 
-def get_insights():
-    token = _get_token()
-    posts_response = get([constant.PAGE_ID, 'media'], token)
+def get_insights(token, page_id):
+    if page_id is None or token is None:
+        raise Exception("Token or page_id is none.")
+    posts_response = get([page_id, 'media'], token)
     posts = []
     unique_tags = set()
     for post_dict in posts_response['data']:
@@ -63,7 +64,3 @@ def get_insights():
 def _getvalue(insights_data_object):
     return insights_data_object['values'][0]['value']
 
-
-def _get_token():
-    with open(constant.ACCESS_TOKEN_FILENAME, "r") as token_file:
-        return token_file.readlines()[0]
