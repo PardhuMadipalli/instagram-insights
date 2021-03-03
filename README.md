@@ -26,3 +26,4 @@
 
 #### Packages needed
 - numpy
+- pandas
