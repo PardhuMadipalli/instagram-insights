@@ -1,0 +1,6 @@
+pandas
+numpy
+requests
+matplotlib
+coverage
+requests_mock
