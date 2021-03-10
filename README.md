@@ -2,17 +2,26 @@
 
 [![codecov](https://codecov.io/gh/PardhuMadipalli/instagram-insights/branch/main/graph/badge.svg?token=SJ6F03WTTK)](https://codecov.io/gh/PardhuMadipalli/instagram-insights)
 
+![Python version](images/python.svg)
+
+![Pip installation](images/pip.svg)
+
 #### Partial report screenshot
 
 ![Report Screenshot](screenshot.png "Report Screenshot")
 
 ## Quickstart
 
-1. Install the package using:<br>
-`pip install instagram-insights`
+1. Install the package using:
+```console
+pip install instagram-insights
+```
 
-2. Run the python scripts using:<br>
-`insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3`
+
+2. Run the python scripts using:
+```console
+insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3
+```
 
 - Page ID and Token must be provided either as options or environment variable values. 
 - If both options and env variables are provided options will be preferred.
@@ -37,3 +46,5 @@
 #### Packages needed
 - numpy
 - pandas
+- requests
+- matplotlib
