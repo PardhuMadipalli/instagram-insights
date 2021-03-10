@@ -10,29 +10,9 @@
 
 1. Install the package using:
 ```console
-foo@bar:~$ pip install instagram-insights console
+pip install instagram-insights
 ```
 
-```bash
-pip install instagram-insights bash
-```
-
-```shell
-pip install instagram-insights shell
-```
-
-```properties
-pip install instagram-insights prop
-```
-
-```zsh
-pip install instagram-insights zsh
-```
-
-
-```sh
-pip install instagram-insights sh
-```
 
 2. Run the python scripts using:
 ```console
