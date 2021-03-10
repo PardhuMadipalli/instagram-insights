@@ -25,6 +25,15 @@ pip install instagram-insights shell
 pip install instagram-insights prop
 ```
 
+```zsh
+pip install instagram-insights zsh
+```
+
+
+```sh
+pip install instagram-insights sh
+```
+
 2. Run the python scripts using:
 ```console
 `insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3`
