@@ -8,8 +8,10 @@
 
 ## Quickstart
 
-1. Install the package using:<br>
-`pip install instagram-insights`
+1. Install the package using:
+```bash
+pip install instagram-insights
+```
 
 2. Run the python scripts using:<br>
 `insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3`
