@@ -16,7 +16,7 @@ pip install instagram-insights
 
 2. Run the python scripts using:
 ```console
-`insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3`
+insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3
 ```
 
 - Page ID and Token must be provided either as options or environment variable values. 
