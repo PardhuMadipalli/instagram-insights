@@ -2,9 +2,9 @@
 
 [![codecov](https://codecov.io/gh/PardhuMadipalli/instagram-insights/branch/main/graph/badge.svg?token=SJ6F03WTTK)](https://codecov.io/gh/PardhuMadipalli/instagram-insights)
 
-![](images/python.svg)
+![Python version](images/python.svg)
 
-![](images/pip.svg)
+![Pip installation](images/pip.svg)
 
 #### Partial report screenshot
 
@@ -46,3 +46,5 @@ insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2
 #### Packages needed
 - numpy
 - pandas
+- requests
+- matplotlib
