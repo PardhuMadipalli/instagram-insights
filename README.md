@@ -9,7 +9,7 @@
 ## Quickstart
 
 1. Install the package using:
-```shell
+```console
 pip install instagram-insights
 ```
 
