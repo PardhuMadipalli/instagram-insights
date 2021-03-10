@@ -1,6 +1,8 @@
 ![](https://github.com/PardhuMadipalli/instagram-insights/workflows/Publish%20PyPi%20Package/badge.svg)
 
 [![codecov](https://codecov.io/gh/PardhuMadipalli/instagram-insights/branch/main/graph/badge.svg?token=SJ6F03WTTK)](https://codecov.io/gh/PardhuMadipalli/instagram-insights)
+![](images/python.svg)<br>
+![](images/pip.svg)
 
 #### Partial report screenshot
 
