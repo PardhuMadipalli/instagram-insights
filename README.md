@@ -10,7 +10,7 @@
 
 1. Install the package using:
 ```console
-pip install instagram-insights console
+foo@bar:~$ pip install instagram-insights console
 ```
 
 ```bash
