@@ -10,11 +10,25 @@
 
 1. Install the package using:
 ```console
-pip install instagram-insights
+pip install instagram-insights console
 ```
 
-2. Run the python scripts using:<br>
+```bash
+pip install instagram-insights bash
+```
+
+```shell
+pip install instagram-insights shell
+```
+
+```properties
+pip install instagram-insights prop
+```
+
+2. Run the python scripts using:
+```console
 `insta-insights --page-id=124567890123 --token=098754321234567890 --num-timings=2 --num-tags=3`
+```
 
 - Page ID and Token must be provided either as options or environment variable values. 
 - If both options and env variables are provided options will be preferred.
